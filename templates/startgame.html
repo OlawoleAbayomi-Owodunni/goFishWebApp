@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+
+    <div id="Gameplay-window">
+        <div class="top-left">
+            <p>Score: {{ score }}</p>
+            <p>Multiplier: x{{ multiplier }}</p>
+        </div>
+
+        <h2>The computer has {{ n_computer }} cards</h2>
+
+        {% for _ in range(n_computer) %}
+            
+            <img src="/static/cards/back.png" style="width:10%;height:10%;">
+
+        {% endfor %}
+
+        <h2>Here are your cards</h2>
+        <h3>Select a card to ask the computer</h3>
+
+        {% for card in cards %}
+        
+            <a hx-get="/select/{{ card[: card.find('_')] }}" 
+            hx-target = "#Gameplay-window"
+            hx-swap = "innerHTML"><img src="/static/cards/{{ card }}" style="width:10%;height:10%;"></a>
+
+        {% endfor %} 
+        <p></p>
+
+        <button hx-get="/startgame" 
+        hx-target="#Gameplay-window"
+        hx-swap="innerHTML"
+        class="button">Restart</button>
+
+        <a href="/" class="button">Back to Start Menu</a>
+    </div>
+
+
+
+{% endblock %}

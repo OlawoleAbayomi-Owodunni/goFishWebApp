@@ -1,0 +1,17 @@
+VARS:
+Multiplier, score
+
+if player go fish:
+	score - 2
+else if computer went to fish
+	score + 2 	//computer failed to get the right card
+
+if player gets a pair:
+	score + (10 * multiplier)
+else
+	score - (5 * multiplier)	//computer got a pair
+
+if player gets a pair:
+	multiplier + 1
+else
+	multiplier = 1

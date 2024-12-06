@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+<div class="homeContainer">
+    <h1>Leaderboard</h1>
+    <table id="leaderboardTable">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rank, (username, score, time) in enumerate(top_scores, start=1) %}
+            <tr>
+                <td>{{ rank }}</td>
+                <td>{{ username }}</td>
+                <td>{{ score }}</td>
+                <td>{{ time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <button hx-get="/"
+    hx-target="#main_menu"
+    hx-swap="innerHTML"
+    class="button">Back to Start Menu</a>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='webapp.css') }}">
+    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+</head>
+
+<body>
+
+    {% block the_body %}
+    {% endblock %}
+
+</body>
+
+</html>

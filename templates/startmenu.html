@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+    <div id = "main_menu" class="homeContainer">
+        <h1>Welcome to Oli's Go Fish game for the Web!</h1>
+        <p>Enter your username and click the "Play" button below to start the game.</p>
+        <p>Or click on the "View Leaderboard" button to see the leaderboard.</p>
+        <form action="/startgame" method="get">
+            <input type="text" name="username" placeholder="Enter username" required>
+            <button type="submit" class="button">PLAY</button>
+        </form>
+
+        <button hx-get="/leaderboard"
+        hx-target="#main_menu"
+        hx-swap="innerHTML"
+        class="button">View Leaderboard</button>
+    </div>
+{% endblock %}

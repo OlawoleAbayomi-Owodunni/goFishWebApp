@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+    <div class="container">
+        <div class="top-left">
+            <p>Final Score: {{ score }}</p>
+        </div>
+
+        <h1>{{ get_flashed_messages()[-1] }}</h1>
+        
+        <h3>Leaderboard</h3>
+        <table id="leaderboardTable">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rank, (username, score, time) in enumerate(top_scores, start=1) %}
+                <tr>
+                    <td>{{ rank }}</td>
+                    <td>{{ username }}</td>
+                    <td>{{ score }}</td>
+                    <td>{{ time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/startgame" class="button">Play Again?</a>
+        <a href="/" class="button">Back to Start Menu</a>
+    </div>
+{% endblock %}

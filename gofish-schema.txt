@@ -1,0 +1,40 @@
+Leaderboard:
+	username	|	score	|	timestamp
+
+scores table:
+		username
+		score
+		timestamp
+	
+	SELECT username, score, time 
+	FROM scores 
+	ORDER BY score 
+	DESC LIMIT 10;
+
+	INSERT INTO scores (username, score) 
+	VALUES (/*'enter username'*/, /*'enter score'*/);
+
+-------------------------------------VVVVVVV---SETTING UP DATABASE---VVVVVVV-------------------------------------------------				
+
+MariaDB -u root -p
+{:password = setucarlow}	//so sorry if this part is irrelevant, I didn't want to take the risk it wasn't
+
+CREATE DATABASE gofishDB;
+
+USE gofishdb;
+
+grant all on gofishDB.* to 'gofishuser'@'localhost' identified by 'gofishpasswd';
+
+quit
+
+MariaDB -u gofishuser -p gofishdb
+{:password = gofishpasswd}
+
+CREATE TABLE scores (
+session_id int auto_increment primary key,
+username varchar(50),			 
+score int(11),				
+time timestamp default current_timestamp
+);
+
+DESCRIBE scores

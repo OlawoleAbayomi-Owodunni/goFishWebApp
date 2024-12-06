@@ -1,0 +1,34 @@
+<div id>
+    <div class="top-left">
+        <p>Score: {{ score }}</p>
+        <p>Multiplier: x{{ multiplier }}</p>
+    </div>
+
+    <h3>{{ get_flashed_messages()[-1] }}</h3>
+
+    <h2 style="font-size: 2em;">Do you have a {{ value }}?</h2>
+
+    {% for card in cards %}
+        <a hx-get="/pick/{{ card[: card.find('_')] }}"
+        hx-target="#Gameplay-window"
+        hx-swap="innerHTML">
+            <img src="/static/cards/{{ card }}" style="width:10%;height:10%;">
+        </a>
+    {% endfor %}
+
+    <p style="font-size: 1.5em;">
+        <a hx-get="/pick/0"
+        hx-target="#Gameplay-window"
+        hx-swap="innerHTML"
+        class="button"><strong>GO FISH!!!</strong></a>
+    </p>
+
+    {% if session['current_round_pairs'] %}
+        <h3 style="font-size: 1.5em;">Pairs collected this round:</h3>
+        <ul>
+            {% for pair in session['current_round_pairs'] %}
+                <li style="font-size: 1.5em;">{{ pair }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
