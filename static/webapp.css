@@ -48,6 +48,12 @@ ul {
     background-color: #208cff;
 }
 
+.playerCards{
+    cursor: pointer;
+}
+
+
+
 /* New styles for score and multiplier */
 .top-left {
     position: absolute;

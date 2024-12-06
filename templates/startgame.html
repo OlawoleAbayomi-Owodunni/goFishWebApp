@@ -23,7 +23,8 @@
         
             <a hx-get="/select/{{ card[: card.find('_')] }}" 
             hx-target = "#Gameplay-window"
-            hx-swap = "innerHTML"><img src="/static/cards/{{ card }}" style="width:10%;height:10%;"></a>
+            hx-swap = "innerHTML"
+            class = "playerCards"><img src="/static/cards/{{ card }}" style="width:10%;height:10%;"></a>
 
         {% endfor %} 
         <p></p>

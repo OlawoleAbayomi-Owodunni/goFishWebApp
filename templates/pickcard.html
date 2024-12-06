@@ -11,7 +11,8 @@
     {% for card in cards %}
         <a hx-get="/pick/{{ card[: card.find('_')] }}"
         hx-target="#Gameplay-window"
-        hx-swap="innerHTML">
+        hx-swap="innerHTML"
+        class = "playerCards">
             <img src="/static/cards/{{ card }}" style="width:10%;height:10%;">
         </a>
     {% endfor %}
